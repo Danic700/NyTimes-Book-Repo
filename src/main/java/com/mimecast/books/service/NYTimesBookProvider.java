@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.mimecast.books.model.Author;
 import com.mimecast.books.model.Book;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 
@@ -15,6 +16,7 @@ import java.util.Map;
 
 
 @Service
+@ConditionalOnProperty(name = "book.provider", havingValue = "NyTimes",matchIfMissing = true)
 public class NYTimesBookProvider implements BookProvider {
 
 
