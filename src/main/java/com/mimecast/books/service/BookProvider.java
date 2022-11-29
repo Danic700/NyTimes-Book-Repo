@@ -1,14 +1,22 @@
 package com.mimecast.books.service;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mimecast.books.model.Author;
+import com.mimecast.books.model.Book;
+import com.mimecast.books.utils.HttpUtils;
 
-import java.io.IOException;
+
+import java.net.http.HttpResponse;
+import java.util.List;
 
 public interface BookProvider {
 
-    public Author getFromNYTimes(String authorName) throws IOException, InterruptedException;
-    public Author getFromGoogle(String authorName);
+    //I was debating whether to make book p
 
+    HttpUtils httpUtils = new HttpUtils();
+    ObjectMapper objectMapper =  new ObjectMapper();
+    Author getFromProvider(String authorName);
+    List<Book> parseResponseFromProvider(HttpResponse<String> response);
 
 }

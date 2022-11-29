@@ -1,20 +1,22 @@
 package com.mimecast.books.model;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.List;
 
-@Entity
 public class Author {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Field("_id")
+    @JsonIgnore
+    private String id;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,4 +38,7 @@ public class Author {
     public void setBookList(List<Book> bookList) {
         this.bookList = bookList;
     }
+
+
+
 }

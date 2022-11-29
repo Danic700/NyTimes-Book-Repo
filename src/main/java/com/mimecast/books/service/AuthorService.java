@@ -1,10 +1,12 @@
 package com.mimecast.books.service;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
+import com.mimecast.books.model.Author;
+
+import java.util.Optional;
 
 public interface AuthorService {
 
-    public void createAuthor(String authorName) throws IOException, InterruptedException, URISyntaxException;
+     void createAuthor(String authorName);
+     Optional<Author> getAuthor(String authorName);
 
 }
